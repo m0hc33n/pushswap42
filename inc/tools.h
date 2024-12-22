@@ -14,8 +14,20 @@
 # define PLUS 43
 # define MINUS 45
 
-int		**arg_validator(int ac, char **av);
-void	free_stack(int	**stack);
-bool	fetch_value(char *arg, int *value);
+typedef struct s_stack
+{
+	int				data;
+	int				offset;
+	struct s_stack	*flink;
+	struct s_stack	*blink;
+}	t_stack;
+
+bool	arg_validator(int ac, char **av, t_stack **stack);
+int		err(void);
+
+// LINKS
+t_stack	*create_link(t_stack **stack, int data);
+t_stack	*get_last_link(t_stack *stack);
+void	free_links(t_stack **stack);
 
 #endif
