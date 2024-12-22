@@ -16,7 +16,7 @@ void	free_stack(int	**stack)
 bool	fetch_value(char *arg, int *value)
 {
 	int			sign;
-	ssize_t		res;
+	long		res;
 
 	res = 0;
 	sign = 1;
@@ -31,8 +31,9 @@ bool	fetch_value(char *arg, int *value)
 		res = (*arg - ZERO) + (res * 10);
 		arg++;
 	}
+	res *= sign;
 	if (*arg || res > INT32_MAX || res < INT32_MIN)
 		return (false);
-	*value = res * sign;
+	*value = res;
 	return (true);
 }
