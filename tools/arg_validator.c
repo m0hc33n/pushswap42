@@ -2,8 +2,8 @@
 
 static bool	fetch_value(char *arg, int *value)
 {
-	int			sign;
-	long		res;
+	int		sign;
+	long	res;
 
 	res = 0;
 	sign = 1;
@@ -36,6 +36,8 @@ static bool	arg_two_check(int ac, char **av, char ***split)
 	else if (ac == 2)
 	{
 		*split = ft_split(av[1], SPACE);
+		if (!*split)
+			return (false);
 	}
 	return (true);
 }
