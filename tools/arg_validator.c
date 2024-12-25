@@ -40,6 +40,22 @@ static bool	arg_two_check(int ac, char **av, char ***split)
 	return (true);
 }
 
+static bool	is_dup(t_stack *stack, int data)
+{
+	if (stack)
+	{
+		while (stack->index < stack->flink->index)
+		{
+			if (stack->data == data)
+				return (true);
+			stack = stack->flink;
+		}
+		if (stack->data == data)
+			return (true);
+	}
+	return (false);
+}
+
 bool	arg_validator(int ac, char **av, t_stack **stack)
 {
 	t_stack	*link;
@@ -53,7 +69,7 @@ bool	arg_validator(int ac, char **av, t_stack **stack)
 		av = split;
 	while (*(++av))
 	{
-		if (!**av || !fetch_value(*av, &data))
+		if (!**av || !fetch_value(*av, &data) || is_dup(*stack, data))
 			return (free_split(split), free_links(stack), false);
 		link = create_link(stack, data);
 		if (!link)

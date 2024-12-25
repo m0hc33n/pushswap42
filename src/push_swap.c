@@ -16,11 +16,10 @@ int main(int ac, char **av)
 
 	//z_stack = ac - 1;
 	stack_a = NULL;
-	if (!arg_validator(ac, av, &stack_a))
+	if (!arg_validator(ac, av, &stack_a) || !stack_a)
 		return (err());
-	if (!stack_a)
-		return (err());
-
+	if (is_sorted(stack_a))
+		return (0);
 	int is_rot = 0;
 	while (!is_rot)
 	{

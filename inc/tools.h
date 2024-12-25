@@ -30,6 +30,7 @@ int		err(void);
 t_stack	*create_link(t_stack **stack, int data);
 t_stack	*get_last_link(t_stack *stack);
 void	free_links(t_stack **stack);
+bool	is_sorted(t_stack *stack);
 
 // UTILS
 char	**ft_split(char const *s, char c);

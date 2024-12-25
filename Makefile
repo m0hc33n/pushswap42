@@ -6,7 +6,7 @@ TLS_HDR = inc/tools.h
 
 SRC = src/push_swap.c
 TOOLS = tools/arg_validator.c tools/links_utils.c tools/utils.c \
-		tools/ft_split.c
+		tools/ft_split.c tools/is_sorted.c
 
 SRC_OBJ = $(SRC:.c=.o)
 TLS_OBJ = $(TOOLS:.c=.o)
