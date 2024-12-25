@@ -1,3 +1,2 @@
 # Push Swap 42
 
-## Description 

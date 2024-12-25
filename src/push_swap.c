@@ -24,9 +24,9 @@ int main(int ac, char **av)
 	int is_rot = 0;
 	while (!is_rot)
 	{
-		printf("{ data : %d , offset : %d , address : %p ,  flink : %p , blink %p }\n", stack_a->data, stack_a->offset, stack_a ,stack_a->flink, stack_a->blink);
+		printf("{ data : %d , index : %d , address : %p ,  flink : %p , blink %p }\n", stack_a->data, stack_a->index, stack_a ,stack_a->flink, stack_a->blink);
 		stack_a = stack_a->flink;
-		if (stack_a->offset == 0)
+		if (stack_a->index == 0)
 			is_rot = 1;
 	}
 	free_links(&stack_a);
