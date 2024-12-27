@@ -8,8 +8,7 @@ SRC = src/push_swap.c
 TOOLS = tools/arg_validator.c tools/utils.c \
 		tools/links_utils.c \
 		tools/ft_split.c tools/is_sorted.c \
-		tools/swap.c tools/push.c tools/rotate.c tools/rrotate.c \
-		tools/rotate_utils.c
+		tools/swap.c tools/push.c tools/rotate.c tools/rrotate.c
 
 SRC_OBJ = $(SRC:.c=.o)
 TLS_OBJ = $(TOOLS:.c=.o)

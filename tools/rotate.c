@@ -1,5 +1,20 @@
 #include "../inc/tools.h"
 
+void	shift_up_index(t_stack *stack)
+{
+	if (stack && stack->blink->index > 0)
+	{
+		stack = stack->flink;
+		while (stack->index < stack->flink->index)
+		{
+			stack->index--;
+			stack = stack->flink;
+		}
+		stack->index--;
+		stack->flink->index = stack->index + 1;
+	}
+}
+
 void	ra(t_stack **stack_a)
 {
 	if (stack_a && *stack_a)
