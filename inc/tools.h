@@ -19,6 +19,7 @@ typedef struct s_stack
 {
 	int				data;
 	int				index;
+	int				ordred_index;
 	struct s_stack	*flink;
 	struct s_stack	*blink;
 }					t_stack;

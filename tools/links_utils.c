@@ -16,6 +16,7 @@ t_stack	*create_link(t_stack **stack, int data)
 			last_link = get_last_link(*stack);
 			last_link->flink = link;
 			link->index = last_link->index + 1;
+			link->ordred_index = 0;
 			link->flink = *stack;
 			link->blink = last_link;
 			(*stack)->blink = link;
@@ -23,6 +24,7 @@ t_stack	*create_link(t_stack **stack, int data)
 		else
 		{
 			link->index = 0;
+			link->ordred_index = 0;
 			link->flink = link;
 			link->blink = link;
 			*stack = link;

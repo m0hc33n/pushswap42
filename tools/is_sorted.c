@@ -6,7 +6,7 @@ bool	is_sorted(t_stack *stack)
 	{
 		while (stack->index < stack->flink->index)
 		{
-			if (stack->data > stack->flink->index)
+			if (stack->data > stack->flink->data)
 				return (false);
 			stack = stack->flink;
 		}

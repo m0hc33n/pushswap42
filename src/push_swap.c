@@ -10,8 +10,8 @@ void	print_stack(t_stack *stack)
 	{
 		while (!is_rot)
 		{
-			printf("\t\t{ data : %2d , index : %d , address : %p ,  flink : %p , blink %p , (ni : %d)}\n", stack->data, 
-				stack->index, stack ,stack->flink, stack->blink, stack->flink->index);
+			printf("\t\t{ data : %2d , index : %d , ordred : %d , address : %p ,  flink : %p , blink %p , (ni : %d)}\n", stack->data, 
+				stack->index, stack->ordred_index , stack ,stack->flink, stack->blink, stack->flink->index);
 			stack = stack->flink;
 			if (stack->index == 0)
 				is_rot = 1;
@@ -47,11 +47,8 @@ int main(int ac, char **av)
 	printf("[STACK B] : \n");
 	print_stack(stack_b);
 
-	rra(&stack_a);
-	rra(&stack_a);
+	set_ordred_index(stack_a, stack_a->blink->index + 1);
 
-
-	// AFTER
 	printf("[STACK A] : \n");
 	print_stack(stack_a);
 	printf("[STACK B] : \n");

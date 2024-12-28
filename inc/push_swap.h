@@ -7,6 +7,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-void	push_swap(int **stack_a, int **stack_b);
+void	set_ordred_index(t_stack *stack, int sz_stack);
 
 #endif
