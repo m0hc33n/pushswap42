@@ -1,9 +1,28 @@
 #include "../inc/tools.h"
 
+static void	set_link_members(t_stack **stack, t_stack *link)
+{
+	link->ordred_index = 0;
+	if (*stack)
+	{
+		link->index = (*stack)->blink->index + 1;
+		link->flink = *stack;
+		link->blink = (*stack)->blink;
+		(*stack)->blink->flink = link;
+		(*stack)->blink = link;
+	}
+	else
+	{
+		link->index = 0;
+		link->flink = link;
+		link->blink = link;
+		*stack = link;
+	}
+}
+
 t_stack	*create_link(t_stack **stack, int data)
 {
 	t_stack	*link;
-	t_stack	*last_link;
 
 	if (stack)
 	{
@@ -11,39 +30,12 @@ t_stack	*create_link(t_stack **stack, int data)
 		if (!link)
 			return (NULL);
 		link->data = data;
-		if (*stack)
-		{
-			last_link = get_last_link(*stack);
-			last_link->flink = link;
-			link->index = last_link->index + 1;
-			link->ordred_index = 0;
-			link->flink = *stack;
-			link->blink = last_link;
-			(*stack)->blink = link;
-		}
-		else
-		{
-			link->index = 0;
-			link->ordred_index = 0;
-			link->flink = link;
-			link->blink = link;
-			*stack = link;
-		}
+		set_link_members(stack, link);
 		return (link);
 	}
 	return (NULL);
 }
 
-t_stack	*get_last_link(t_stack *stack)
-{
-	if (stack)
-	{
-		while (stack->index < stack->flink->index)
-			stack = stack->flink;
-		return (stack);
-	}
-	return (NULL);
-}
 
 void	free_links(t_stack **stack)
 {

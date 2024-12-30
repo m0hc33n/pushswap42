@@ -31,15 +31,14 @@ int main(int ac, char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	//int	sz_stack;
 
-	//z_stack = ac - 1;
 	stack_a = NULL;
 	stack_b = NULL;
 	if (!arg_validator(ac, av, &stack_a) || !stack_a)
 		return (err());
 	if (is_sorted(stack_a))
-		return (0);
+		return (free_links(&stack_a), 0);
+	set_ordred_index(stack_a, stack_a->blink->index + 1);
 	
 	// before;
 	printf("[STACK A] : \n");
@@ -47,8 +46,7 @@ int main(int ac, char **av)
 	printf("[STACK B] : \n");
 	print_stack(stack_b);
 
-	set_ordred_index(stack_a, stack_a->blink->index + 1);
-
+	
 	printf("[STACK A] : \n");
 	print_stack(stack_a);
 	printf("[STACK B] : \n");
