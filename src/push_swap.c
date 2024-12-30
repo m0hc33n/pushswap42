@@ -40,13 +40,18 @@ int main(int ac, char **av)
 		return (free_links(&stack_a), 0);
 	set_ordred_index(stack_a, stack_a->blink->index + 1);
 	
-	// before;
+	//before;
 	printf("[STACK A] : \n");
 	print_stack(stack_a);
 	printf("[STACK B] : \n");
 	print_stack(stack_b);
 
-	
+
+	// sort
+	if (stack_a->blink->index <= 3)
+		sort_three(&stack_a);
+
+	// after
 	printf("[STACK A] : \n");
 	print_stack(stack_a);
 	printf("[STACK B] : \n");

@@ -8,5 +8,6 @@
 # include <unistd.h>
 
 void	set_ordred_index(t_stack *stack, int sz_stack);
+void	sort_three(t_stack **stack);
 
 #endif
