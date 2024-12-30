@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 HDR = inc/push_swap.h
 TLS_HDR = inc/tools.h
 
-SRC = src/push_swap.c src/push_swap_utils.c src/sort_three.c
+SRC = src/push_swap.c src/push_swap_utils.c src/sort_three.c sort.c
 TOOLS = tools/arg_validator.c tools/utils.c \
 		tools/links_utils.c \
 		tools/ft_split.c tools/is_sorted.c \

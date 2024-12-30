@@ -26,3 +26,11 @@ void	set_ordred_index(t_stack *stack, int sz_stack)
 		p = p->flink;
 	}
 }
+
+/*
+	push the smallest possible number to stack b until stack_a->index == 2 (3 elements)
+*/
+void	pb_until_three(t_stack **stack_a, t_stack **stack_b)
+{
+	
+}

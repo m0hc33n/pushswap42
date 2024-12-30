@@ -53,7 +53,7 @@ static char	*copy_word(const char *s, char c)
 	return (word);
 }
 
-bool	init_split(const char *s, char c, char ***split, size_t *word_count)
+static bool	init_split(const char *s, char c, char ***split, size_t *word_count)
 {
 	*word_count = count_words(s, c) + 1;
 	*split = (char **)ft_calloc((*word_count + 1), sizeof(char *));
