@@ -48,7 +48,7 @@ int main(int ac, char **av)
 
 
 	// sort
-	if (stack_a->blink->index <= 3)
+	if (stack_a->blink->index <= 2)
 		sort_three(&stack_a);
 
 	// after

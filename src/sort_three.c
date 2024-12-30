@@ -12,15 +12,21 @@ static int	get_big_index(t_stack *stack)
 		return (2);
 }
 
+/*
+	sort three or less numbers;
+*/
 void	sort_three(t_stack **stack)
 {
 	int	highest;
 
-	highest = get_big_index(*stack);
-	if (highest == 0)
-		ra(stack);
-	else if (highest == 1)
-		rra(stack);
+	if ((*stack)->index == 2)
+	{
+		highest = get_big_index(*stack);
+		if (highest == 0)
+			ra(stack);
+		else if (highest == 1)
+			rra(stack);
+	}
 	if ((*stack)->data > (*stack)->flink->data)
 		sa(*stack);
 }
