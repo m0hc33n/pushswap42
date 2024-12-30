@@ -13,26 +13,30 @@ static void	shift_down_index(t_stack *stack)
 	}
 }
 
-void	rra(t_stack **stack_a)
+void	rra(t_stack **stack_a, bool out)
 {
 	if (stack_a && *stack_a)
 	{
 		shift_down_index(*stack_a);
 		*stack_a = (*stack_a)->blink;
+		if (out)
+			write(STDOUT_FILENO, RRA, 4);
 	}
 }
 
-void	rrb(t_stack **stack_b)
+void	rrb(t_stack **stack_b, bool out)
 {
 	if (stack_b && *stack_b)
 	{
 		shift_down_index(*stack_b);
 		*stack_b = (*stack_b)->blink;
+		if (out)
+			write(STDOUT_FILENO, RRB, 4);
 	}
 }
 
-void	rrr(t_stack **stack_a, t_stack **stack_b)
+void	rrr(t_stack **stack_a, t_stack **stack_b, bool out)
 {
-	ra(stack_a);
-	rb(stack_b);
+	ra(stack_a, out);
+	rb(stack_b, out);
 }

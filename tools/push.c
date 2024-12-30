@@ -54,13 +54,23 @@ static void	push(t_stack **push_to, t_stack **pop_from)
 	}
 }
 
-void	pa(t_stack **stack_a, t_stack **stack_b)
+void	pa(t_stack **stack_a, t_stack **stack_b, bool out)
 {
-	push(stack_a, stack_b);
+	if (stack_a && stack_b && *stack_b)
+	{
+		push(stack_a, stack_b);
+		if (out)
+			write(STDOUT_FILENO, PA, 3);
+	}
 }
 
-void	pb(t_stack **stack_a, t_stack **stack_b)
+void	pb(t_stack **stack_a, t_stack **stack_b, bool out)
 {
-	push(stack_b, stack_a);
+	if (stack_a && stack_b && *stack_a)
+	{
+		push(stack_b, stack_a);
+		if (out)
+			write(STDOUT_FILENO, PB, 3);
+	}
 }
 

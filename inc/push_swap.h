@@ -7,7 +7,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+void	push_swap(t_stack **stack_a, t_stack **stack_b);
 void	set_ordred_index(t_stack *stack, int sz_stack);
+void	pb_until_three(t_stack **stack_a, t_stack **stack_b);
 void	sort_three(t_stack **stack);
 void	sort(t_stack **stack_a, t_stack **stack_b);
 

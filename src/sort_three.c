@@ -23,10 +23,10 @@ void	sort_three(t_stack **stack)
 	{
 		highest = get_big_index(*stack);
 		if (highest == 0)
-			ra(stack);
+			ra(stack, true);
 		else if (highest == 1)
-			rra(stack);
+			rra(stack, true);
 	}
 	if ((*stack)->data > (*stack)->flink->data)
-		sa(*stack);
+		sa(*stack, true);
 }

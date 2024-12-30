@@ -15,18 +15,33 @@ static void	swap(t_stack *stack)
 	}
 }
 
-void	sa(t_stack *stack_a)
+void	sa(t_stack *stack_a, bool out)
 {
-	swap(stack_a);
+	if (stack_a)
+	{
+		swap(stack_a);
+		if (out)
+			write(STDOUT_FILENO, SA, 2);
+	}
 }
 
-void	sb(t_stack *stack_b)
+void	sb(t_stack *stack_b, bool out)
 {
-	swap(stack_b);
+	if (stack_b)
+	{
+		swap(stack_b);
+		if (out)
+			write(STDOUT_FILENO, SA, 3);
+	}
 }
 
-void	ss(t_stack *stack_a, t_stack *stack_b)
+void	ss(t_stack *stack_a, t_stack *stack_b, bool out)
 {
-	swap(stack_a);
-	swap(stack_b);
+	if (stack_a && stack_b)
+	{
+		swap(stack_a);
+		swap(stack_b);
+		if (out)
+			write(STDOUT_FILENO, SA, 3);
+	}
 }

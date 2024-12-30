@@ -7,7 +7,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/myProgram",
-            "args": ["30", "10", "20"],
+            "args": ["30", "10", "20", "-14", "-80", "0"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

@@ -15,26 +15,30 @@ void	shift_up_index(t_stack *stack)
 	}
 }
 
-void	ra(t_stack **stack_a)
+void	ra(t_stack **stack_a, bool out)
 {
 	if (stack_a && *stack_a)
 	{
 		shift_up_index(*stack_a);
 		*stack_a = (*stack_a)->flink;
+		if (out)
+			write(STDOUT_FILENO, RA, 3);
 	}
 }
 
-void	rb(t_stack **stack_b)
+void	rb(t_stack **stack_b, bool out)
 {
 	if (stack_b && *stack_b)
 	{
 		shift_up_index(*stack_b);
 		*stack_b = (*stack_b)->flink;
+		if (out)
+			write(STDOUT_FILENO, RB, 3);
 	}
 }
 
-void	rr(t_stack **stack_a, t_stack **stack_b)
+void	rr(t_stack **stack_a, t_stack **stack_b, bool out)
 {
-	ra(stack_a);
-	rb(stack_b);
+	ra(stack_a, out);
+	rb(stack_b, out);
 }
