@@ -19,7 +19,7 @@ void	sort_three(t_stack **stack)
 {
 	int	highest;
 
-	if ((*stack)->index == 2)
+	if ((*stack)->blink->index == 2)
 	{
 		highest = get_big_index(*stack);
 		if (highest == 0)

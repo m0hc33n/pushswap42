@@ -49,6 +49,7 @@ char				**ft_split(char const *s, char c);
 void				free_split(char **args);
 void				*ft_calloc(size_t count, size_t size);
 void				*ft_memset(void *b, int c, size_t len);
+int					abs(int nbr);
 
 // ACTIONS
 void				sa(t_stack *stack_a, bool out);

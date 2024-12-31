@@ -27,7 +27,7 @@ void	set_ordred_index(t_stack *stack, int sz_stack)
 	}
 }
 
-static int	find_midpt(t_stack *stack)
+static int	get_mean(t_stack *stack)
 {
 	int	i;
 	int	sum;
@@ -49,25 +49,25 @@ static int	find_midpt(t_stack *stack)
 
 
 /*
-	push the smallest possible number to stack b until stack_a->index == 2 (3 elements)
+	push all element - 3 from stack a to stack b
+	
+	push smallest numbers first by calculating middle point
 */
 void	pb_until_three(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*tmp;
-	int		middle;
+	int		mean;
 
 	while ((*stack_a)->blink->index > 2)
 	{
-		middle = find_midpt(*stack_a);
-		tmp = *stack_a;
-		if (tmp->ordred_index < middle)
+		mean = get_mean(*stack_a);
+		if ((*stack_a)->ordred_index < mean)
 			pb(stack_a, stack_b, true);
-		else if (tmp->flink->ordred_index < middle)
+		else if ((*stack_a)->flink->ordred_index < mean)
 		{
 			ra(stack_a, true);
 			pb(stack_a, stack_b, true);
 		}
-		else if (tmp->blink->ordred_index < middle)
+		else if ((*stack_a)->blink->ordred_index < mean)
 		{
 			rra(stack_a, true);
 			pb(stack_a, stack_b, true);
