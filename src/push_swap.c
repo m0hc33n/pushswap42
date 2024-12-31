@@ -12,14 +12,14 @@ static void	smart_rotate(t_stack **stack_a, t_stack **stack_b, int cost_a, int c
 		while (cost_a--)
 			ra(stack_a, true);
 	else
-		while (cost_a--)
-			ra(stack_a, true);
+		while (cost_a++)
+			rra(stack_a, true);
 	if (cost_b > 0)
 		while (cost_b--)
 			rb(stack_b, true);
 	else
-		while (cost_b--)
-			rb(stack_b, true);
+		while (cost_b++)
+			rrb(stack_b, true);
 }
 
 static void	push_back(t_stack **stack_a, t_stack **stack_b)
