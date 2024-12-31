@@ -42,27 +42,28 @@ static void	calc_cost(t_stack *stack_a, t_stack *stack_b, int *cost_a, int *cost
 		*cost_a = link_target;
 }
 
-int	get_target_b_link(t_stack *stack_a, t_stack *stack_b, int *cost_a, int *cost_b)
+void	get_target_b_link(t_stack *stack_a, t_stack *stack_b, int *cost_a, int *cost_b)
 {
 	int		is_rot;
 	int		lowest_cost;
-	int		b_target_pos;
 	int		tcost;
+	int		tmp_cost_a;
+	int		tmp_cost_b;
 
 	is_rot = 0;
 	lowest_cost = INT32_MAX;
 	while (!is_rot)
 	{
-		calc_cost(stack_a, stack_b, &cost_a, &cost_b);
+		calc_cost(stack_a, stack_b, &tmp_cost_a, &tmp_cost_b);
 		tcost = abs(*cost_a) + abs(*cost_b);
 		if (lowest_cost > tcost)
 		{
+			*cost_a = tmp_cost_a;
+			*cost_b = tmp_cost_b;
 			lowest_cost = tcost;
-			b_target_pos = stack_b->index;
 		}
 		stack_b = stack_b->flink;
 		if (stack_b->index == 0)
 			is_rot = 1;
 	}
-	return (b_target_pos);
 }

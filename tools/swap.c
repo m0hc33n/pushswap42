@@ -21,7 +21,7 @@ void	sa(t_stack *stack_a, bool out)
 	{
 		swap(stack_a);
 		if (out)
-			write(STDOUT_FILENO, SA, 2);
+			write(STDOUT_FILENO, SA, 3);
 	}
 }
 
