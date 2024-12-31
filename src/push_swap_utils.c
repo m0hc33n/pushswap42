@@ -51,7 +51,7 @@ static int	get_mean(t_stack *stack)
 /*
 	push all element - 3 from stack a to stack b
 	
-	push smallest numbers first by calculating middle point
+	push smallest numbers first by calculating mean (average)
 */
 void	pb_until_three(t_stack **stack_a, t_stack **stack_b)
 {
