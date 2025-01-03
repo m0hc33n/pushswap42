@@ -10,8 +10,8 @@ void	print_stack(t_stack *stack)
 	{
 		while (!is_rot)
 		{
-			printf("\t\t{ data : %3d , index : %3d , ordred : %3d , address : %p ,  flink : %p , blink %p}\n", stack->data, 
-				stack->index, stack->ordred_index , stack ,stack->flink, stack->blink);
+			printf("\t\t{ data : %10d  , ordred : %10d , address : %p ,  flink : %p , blink %p}\n", stack->data, 
+				stack->ordred_index , stack ,stack->flink, stack->blink);
 			stack = stack->flink;
 			if (stack->index == 0)
 				is_rot = 1;
@@ -43,9 +43,6 @@ int main(int ac, char **av)
 		sort_three(&stack_a);
 	else
 		push_swap(&stack_a, &stack_b);
-
-	print_stack(stack_a);
-
 	free_links(&stack_a);
 	free_links(&stack_b); 
 	return 0;

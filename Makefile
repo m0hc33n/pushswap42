@@ -6,7 +6,7 @@ TLS_HDR = inc/tools.h
 
 SRC = 	src/main.c src/push_swap.c \
 		src/push_swap_utils.c src/push_swap_utils2.c \
-		src/sort_three.c
+		src/sort_three.c src/smart_rotate.c
 TOOLS = tools/arg_validator.c tools/utils.c \
 		tools/links_utils.c \
 		tools/ft_split.c tools/is_sorted.c \

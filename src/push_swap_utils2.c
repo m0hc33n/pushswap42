@@ -3,19 +3,19 @@
 static int	get_a_min_ordred_index(t_stack *stack_a)
 {
 	bool	is_rot;
-	int		smallest;
+	t_stack	*smallest;
 
 	is_rot = false;
-	smallest = stack_a->ordred_index;
+	smallest = stack_a;
 	while (!is_rot)
 	{
-		if (stack_a->ordred_index < smallest)
-			smallest = stack_a->ordred_index;
+		if (stack_a->ordred_index < smallest->ordred_index)
+			smallest = stack_a;
 		stack_a = stack_a->flink;
 		if (stack_a->index == 0)
 			is_rot = true;
 	}
-	return (smallest);
+	return (smallest->index);
 }
 
 static size_t	get_a_link_target(t_stack *stack_a, int b_ordred_index_link)
@@ -62,9 +62,10 @@ static void	calc_cost(t_stack *stack_a, t_stack *stack_b, int sz_stack_b, int *c
 		*cost_a = link_target;
 }
 
-void	get_target_b_link(t_stack *stack_a, t_stack *stack_b, int *cost_a, int *cost_b)
+void	get_effective_cost(t_stack *stack_a, t_stack *stack_b, int *cost_a, int *cost_b)
 {
 	int		is_rot;
+	int		sz_b;
 	size_t	lowest_cost;
 	size_t	tcost;
 	int		tmp_cost_a;
@@ -72,7 +73,7 @@ void	get_target_b_link(t_stack *stack_a, t_stack *stack_b, int *cost_a, int *cos
 
 	is_rot = 0;
 	lowest_cost = INT64_MAX;
-	int sz_b = stack_b->blink->index + 1;
+	sz_b = stack_b->blink->index + 1;
 	while (!is_rot)
 	{
 		calc_cost(stack_a, stack_b, sz_b, &tmp_cost_a, &tmp_cost_b);

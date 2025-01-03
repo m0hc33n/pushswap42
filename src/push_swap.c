@@ -1,27 +1,5 @@
 #include "../inc/push_swap.h"
 
-static void	smart_rotate(t_stack **stack_a, t_stack **stack_b, int cost_a, int cost_b)
-{
-	if (cost_a > 0 && cost_b > 0)
-		while (cost_a-- && cost_b--)
-			rr(stack_a, stack_b, true);
-	else if (cost_a < 0 && cost_b < 0)
-		while (cost_a++ && cost_b++)
-			rrr(stack_a, stack_b, true);
-	if (cost_a > 0)
-		while (cost_a--)
-			ra(stack_a, true);
-	else
-		while (cost_a++)
-			rra(stack_a, true);
-	if (cost_b > 0)
-		while (cost_b--)
-			rb(stack_b, true);
-	else
-		while (cost_b++)
-			rrb(stack_b, true);
-}
-
 static void	push_back(t_stack **stack_a, t_stack **stack_b)
 {
 	int	cost_a;
@@ -29,7 +7,7 @@ static void	push_back(t_stack **stack_a, t_stack **stack_b)
 
 	while (*stack_b)
 	{
-		get_target_b_link(*stack_a, *stack_b, &cost_a, &cost_b);
+		get_effective_cost(*stack_a, *stack_b, &cost_a, &cost_b);
 		smart_rotate(stack_a, stack_b, cost_a, cost_b);
 		pa(stack_a, stack_b, true);
 	}
