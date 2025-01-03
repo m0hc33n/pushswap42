@@ -35,6 +35,8 @@ int main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
+	if (ac == 1)
+		return (0);
 	if (!arg_validator(ac, av, &stack_a) || !stack_a)
 		return (err());
 	if (is_sorted(stack_a))
@@ -44,8 +46,12 @@ int main(int ac, char **av)
 		sort_three(&stack_a);
 	else
 		push_swap(&stack_a, &stack_b);
+	if (is_sorted(stack_a))
+		printf("[well done]");
+	else
+		printf("err");	
 	//print_stack(stack_a); //aaaa
 	free_links(&stack_a);
-	free_links(&stack_b); 
-	return 0;
+	free_links(&stack_b);
+	return (0);
 }

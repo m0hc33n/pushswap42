@@ -6,7 +6,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define ERROR "ERROR\n"
+# define ERROR "Error\n"
 # define ERRORLEN 6
 
 # define ZERO 48
