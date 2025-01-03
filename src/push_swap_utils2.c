@@ -42,47 +42,50 @@ static size_t	get_a_link_target(t_stack *stack_a, int b_ordred_index_link)
 	return (target_pos);
 }
 
-static void	calc_cost(t_stack *stack_a, t_stack *stack_b, int sz_stack_b, int *cost_a, int *cost_b)
+static int	calc_cost_a(t_stack *stack_a, t_stack *stack_b)
 {
-	//int		sz_stack_b;
 	int		sz_stack_a;
 	size_t	link_target;
 
 	sz_stack_a = stack_a->blink->index + 1;
-	if (stack_b->index > sz_stack_b / 2)
-		*cost_b = stack_b->index - sz_stack_b;
-	else
-		*cost_b = stack_b->index;
 	link_target = get_a_link_target(stack_a, stack_b->ordred_index);
 	if (link_target == INT64_MAX)
 		link_target = get_a_min_ordred_index(stack_a);
 	if (link_target > (size_t)sz_stack_a / 2)
-		*cost_a = link_target - sz_stack_a;
+		return (link_target - sz_stack_a);
 	else
-		*cost_a = link_target;
+		return ((int)link_target);
 }
 
-void	get_effective_cost(t_stack *stack_a, t_stack *stack_b, int *cost_a, int *cost_b)
+static int	calc_cost_b(t_stack *stack_b, int sz_stack_b)
+{
+	if (stack_b->index > sz_stack_b / 2)
+		return (stack_b->index - sz_stack_b);
+	else
+		return (stack_b->index);
+}
+
+void	get_effective_cost(t_stack *stack_a, t_stack *stack_b,
+			int *cost_a, int *cost_b)
 {
 	int		is_rot;
 	int		sz_b;
-	size_t	lowest_cost;
-	size_t	tcost;
+	int		lowest_cost;
 	int		tmp_cost_a;
 	int		tmp_cost_b;
 
 	is_rot = 0;
-	lowest_cost = INT64_MAX;
+	lowest_cost = INT32_MAX;
 	sz_b = stack_b->blink->index + 1;
 	while (!is_rot)
 	{
-		calc_cost(stack_a, stack_b, sz_b, &tmp_cost_a, &tmp_cost_b);
-		tcost = abs(tmp_cost_a) + abs(tmp_cost_b);
-		if (lowest_cost > tcost)
+		tmp_cost_a = calc_cost_a(stack_a, stack_b);
+		tmp_cost_b = calc_cost_b(stack_b, sz_b);
+		if (lowest_cost > abs(tmp_cost_a) + abs(tmp_cost_b))
 		{
 			*cost_a = tmp_cost_a;
 			*cost_b = tmp_cost_b;
-			lowest_cost = tcost;
+			lowest_cost = abs(tmp_cost_a) + abs(tmp_cost_b);
 		}
 		stack_b = stack_b->flink;
 		if (stack_b->index == 0)

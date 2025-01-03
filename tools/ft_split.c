@@ -10,7 +10,6 @@ static size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-
 static size_t	count_words(const char *s, char sep)
 {
 	size_t	count;

@@ -39,4 +39,3 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 	push_back(stack_a, stack_b);
 	final_touch(stack_a);
 }
-

@@ -6,8 +6,8 @@
 */
 void	set_ordred_index(t_stack *stack, int sz_stack)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	t_stack	*p;
 	t_stack	*tmp;
 
@@ -46,7 +46,6 @@ static int	get_mean(t_stack *stack)
 	else
 		return ((sum / i) + 1);
 }
-
 
 /*
 	push all element - 3 from stack a to stack b

@@ -36,7 +36,6 @@ t_stack	*create_link(t_stack **stack, int data)
 	return (NULL);
 }
 
-
 void	free_links(t_stack **stack)
 {
 	t_stack	*p;
