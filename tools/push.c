@@ -73,4 +73,3 @@ void	pb(t_stack **stack_a, t_stack **stack_b, bool out)
 			write(STDOUT_FILENO, PB, 3);
 	}
 }
-

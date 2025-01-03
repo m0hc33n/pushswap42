@@ -3,6 +3,7 @@
 /*
 	print stack // to remove
 */
+#include <stdio.h>
 void	print_stack(t_stack *stack)
 {
 	int is_rot = 0;
@@ -10,7 +11,7 @@ void	print_stack(t_stack *stack)
 	{
 		while (!is_rot)
 		{
-			printf("\t\t{ data : %10d  , ordred : %10d , address : %p ,  flink : %p , blink %p}\n", stack->data, 
+			printf("\t\t{ data : %10d  , ordred_index : %10d , address : %p ,  flink : %p , blink %p}\n", stack->data, 
 				stack->ordred_index , stack ,stack->flink, stack->blink);
 			stack = stack->flink;
 			if (stack->index == 0)
@@ -43,6 +44,7 @@ int main(int ac, char **av)
 		sort_three(&stack_a);
 	else
 		push_swap(&stack_a, &stack_b);
+	//print_stack(stack_a); //aaaa
 	free_links(&stack_a);
 	free_links(&stack_b); 
 	return 0;

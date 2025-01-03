@@ -3,7 +3,6 @@
 
 # include "tools.h"
 # include <stdbool.h>
-# include <stdio.h> // exit()
 # include <stdlib.h>
 # include <unistd.h>
 

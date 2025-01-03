@@ -37,6 +37,8 @@ void	rrb(t_stack **stack_b, bool out)
 
 void	rrr(t_stack **stack_a, t_stack **stack_b, bool out)
 {
-	rra(stack_a, out);
-	rrb(stack_b, out);
+	rra(stack_a, false);
+	rrb(stack_b, false);
+	if (out)
+		write(STDOUT_FILENO, RRR, 4);
 }

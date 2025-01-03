@@ -68,7 +68,7 @@ static bool	init_split(const char *s, char c, char ***split, size_t *word_count)
 
 /*
 	split the string s , and making the first pointer empty 
-	-> (to work with arg_validator)
+	-> (to be compatible with arg_validator)
 */
 char	**ft_split(char const *s, char c)
 {

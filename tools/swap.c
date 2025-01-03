@@ -31,7 +31,7 @@ void	sb(t_stack *stack_b, bool out)
 	{
 		swap(stack_b);
 		if (out)
-			write(STDOUT_FILENO, SA, 3);
+			write(STDOUT_FILENO, SB, 3);
 	}
 }
 
@@ -39,9 +39,9 @@ void	ss(t_stack *stack_a, t_stack *stack_b, bool out)
 {
 	if (stack_a && stack_b)
 	{
-		swap(stack_a);
-		swap(stack_b);
+		sa(stack_a, false);
+		sb(stack_b, false);
 		if (out)
-			write(STDOUT_FILENO, SA, 3);
+			write(STDOUT_FILENO, SS, 3);
 	}
 }
