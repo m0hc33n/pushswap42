@@ -10,6 +10,8 @@
 #  define BUFFER_SIZE 1024
 # endif
 
+# define OK "OK\n"
+# define KO "KO\n"
 # define NEW_LINE '\n'
 
 typedef struct s_tracker
