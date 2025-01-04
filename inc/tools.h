@@ -63,5 +63,4 @@ void				rra(t_stack **stack_a, bool out);
 void				rrb(t_stack **stack_b, bool out);
 void				rrr(t_stack **stack_a, t_stack **stack_b, bool out);
 
-
 #endif
