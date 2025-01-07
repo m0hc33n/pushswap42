@@ -75,7 +75,7 @@ int	main(int ac, char **av)
 	if (!checker(&stack_a, &stack_b))
 		return (free_links(&stack_a), free_links(&stack_b), err());
 	if (is_sorted(stack_a) && !stack_b)
-		write(STDOUT_FILENO, OK, 3);
+		write(STDERR_FILENO, OK, 3);
 	else
 		write(STDOUT_FILENO, KO, 3);
 	free_links(&stack_a);

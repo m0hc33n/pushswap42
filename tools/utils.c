@@ -2,7 +2,7 @@
 
 int	err(void)
 {
-	write(STDOUT_FILENO, ERROR, ERRORLEN);
+	write(STDERR_FILENO, ERROR, ERRORLEN);
 	return (-1);
 }
 

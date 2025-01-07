@@ -1,5 +1,19 @@
 #include "../inc/tools.h"
 
+static bool	is_sign_valid(char **arg, int *sign)
+{
+	if (**arg == PLUS || **arg == MINUS)
+	{
+		if (**arg == MINUS)
+			*sign *= -1;
+		(*arg)++;
+		if (!**arg)
+			return (false);
+		return (true);
+	}
+	return (true);
+}
+
 static bool	fetch_value(char *arg, int *value)
 {
 	int		sign;
@@ -9,22 +23,18 @@ static bool	fetch_value(char *arg, int *value)
 	sign = 1;
 	while (*arg == SPACE)
 		arg++;
-	if (*arg == PLUS || *arg == MINUS)
-	{
-		if (*arg == MINUS)
-			sign *= -1;
-		arg++;
-	}
+	if (!is_sign_valid(&arg, &sign))
+		return (false);
 	while (*arg >= 48 && *arg <= 57)
 	{
 		res = (*arg - ZERO) + (res * 10);
 		arg++;
 	}
-	res *= sign;
 	while (*arg == SPACE)
 		arg++;
 	if (*arg || res > INT32_MAX || res < INT32_MIN)
 		return (false);
+	res *= sign;
 	*value = res;
 	return (true);
 }
