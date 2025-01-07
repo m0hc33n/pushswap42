@@ -32,9 +32,9 @@ static bool	fetch_value(char *arg, int *value)
 	}
 	while (*arg == SPACE)
 		arg++;
+	res *= sign;
 	if (*arg || res > INT32_MAX || res < INT32_MIN)
 		return (false);
-	res *= sign;
 	*value = res;
 	return (true);
 }
