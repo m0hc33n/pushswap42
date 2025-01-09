@@ -1,6 +1,6 @@
 #include "../inc/checker.h"
 
-static void	enqueue(t_tracker **tracker, char *buffer)
+void	enqueue(t_tracker **tracker, char *buffer)
 {
 	t_tracker	*node;
 	t_tracker	*tail;

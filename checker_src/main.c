@@ -13,7 +13,7 @@ static bool	cmp(const char *s1, const char *s2)
 	return (true);
 }
 
-bool	do_instructions(char *instruction, t_stack **stack_a, t_stack **stack_b)
+static bool	do_instructions(char *instruction, t_stack **stack_a, t_stack **stack_b)
 {
 	if (cmp(instruction, RA))
 		ra(stack_a, false);
@@ -44,8 +44,11 @@ bool	do_instructions(char *instruction, t_stack **stack_a, t_stack **stack_b)
 
 bool	checker(t_stack **stack_a, t_stack **stack_b)
 {
-	char	*line;
+	char		*line;
+	t_tracker	*instructions_link;
+	t_tracker	*tmp;
 
+	instructions_link = NULL;
 	while (true)
 	{
 		line = get_next_line(STDIN_FILENO);
@@ -54,10 +57,16 @@ bool	checker(t_stack **stack_a, t_stack **stack_b)
 			free(line);
 			break ;
 		}
-		if (!do_instructions(line, stack_a, stack_b))
-			return (free(line), false);
-		free(line);
+		enqueue(&instructions_link, line);
+		}
+	tmp = instructions_link;
+	while (tmp)
+	{
+		if (!do_instructions(tmp->buffer, stack_a, stack_b))
+			return (free_wagons(&instructions_link, NULL), false);
+		tmp = tmp->next;
 	}
+	free_wagons(&instructions_link, NULL);
 	return (true);
 }
 

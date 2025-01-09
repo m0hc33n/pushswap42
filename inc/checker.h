@@ -26,6 +26,7 @@ t_tracker	*train_tail(t_tracker *tracker);
 uint32_t	get_line_size(t_tracker *tracker);
 void		unite_wagon(t_tracker *tracker, char *wagon);
 void		free_wagons(t_tracker **tracker, t_tracker *fish_wagon);
+void		enqueue(t_tracker **tracker, char *buffer);
 
 // CORE
 char		*get_next_line(int fd);

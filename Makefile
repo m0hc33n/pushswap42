@@ -8,8 +8,7 @@ CHECKER_HDR = inc/checker.h
 SRC = 	src/main.c src/push_swap.c \
 		src/push_swap_utils.c src/push_swap_utils2.c \
 		src/sort_three.c src/smart_rotate.c
-CHECKER_SRC = checker_src/main.c checker_src/get_next_line.c \
-		checker_src/get_next_line_utils.c
+CHECKER_SRC = checker_src/main.c checker_src/gnl.c checker_src/gnl_utils.c
 TOOLS = tools/arg_validator.c tools/utils.c \
 		tools/links_utils.c \
 		tools/ft_split.c tools/is_sorted.c \
