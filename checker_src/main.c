@@ -58,7 +58,7 @@ bool	checker(t_stack **stack_a, t_stack **stack_b)
 			break ;
 		}
 		enqueue(&instructions_link, line);
-		}
+	}
 	tmp = instructions_link;
 	while (tmp)
 	{
